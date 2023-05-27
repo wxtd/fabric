@@ -1,0 +1,13 @@
+ Commit SHA: 9955302
+ Go version: go1.16.7
+ OS/Arch: linux/amd64
+[34m2023-05-07 08:22:52.759 UTC [orderer.common.server] Main -> INFO 01e[0m Beginning to serve requests
+[34m2023-05-07 08:22:52.831 UTC [orderer.consensus.etcdraft] apply -> INFO 01f[0m Applied config change to add node 1, current nodes in channel: [1] channel=mychannel node=3
+[34m2023-05-07 08:22:52.831 UTC [orderer.consensus.etcdraft] apply -> INFO 020[0m Applied config change to add node 2, current nodes in channel: [1 2] channel=mychannel node=3
+[34m2023-05-07 08:22:52.831 UTC [orderer.consensus.etcdraft] apply -> INFO 021[0m Applied config change to add node 3, current nodes in channel: [1 2 3] channel=mychannel node=3
+[34m2023-05-07 08:22:55.168 UTC [orderer.consensus.etcdraft] run -> INFO 022[0m raft.node: 3 elected leader 2 at term 2 channel=mychannel node=3
+[34m2023-05-07 08:22:55.169 UTC [orderer.consensus.etcdraft] run -> INFO 023[0m Raft leader changed: 0 -> 2 channel=mychannel node=3
+[34m2023-05-07 08:22:55.389 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 024[0m Writing block [8] (Raft index: 12) to ledger channel=mychannel node=3
+[34m2023-05-07 09:32:16.653 UTC [orderer.common.server] func1 -> INFO 025[0m Received signal: 15 (terminated)
+[33m2023-05-07 09:32:16.655 UTC [orderer.common.cluster] handleMessage -> WARN 026[0m Stream read from 192.168.80.5:32900 failed: rpc error: code = Canceled desc = context canceled
+[34m2023-05-07 09:32:16.655 UTC [comm.grpc.server] 1 -> INFO 027[0m streaming call completed grpc.service=orderer.Cluster grpc.method=Step grpc.peer_address=192.168.80.5:32900 grpc.peer_subject="CN=orderer1.example.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=1h9m21.488807355s

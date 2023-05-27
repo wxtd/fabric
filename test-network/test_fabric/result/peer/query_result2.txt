@@ -1,0 +1,1 @@
+{"AppraisedValue":800,"Color":"white","ID":"asset6","Owner":"AAA","Size":15}
