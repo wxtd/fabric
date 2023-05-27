@@ -4,7 +4,8 @@
 
 . utils.sh
 
-KEY_ADDRESS=/home/ubuntu/ms/fabric-samples/test-network/organizations
+KEY_ADDRESS=$(dirname "$PWD")/organizations
+# KEY_ADDRESS=$(dirname "$PWD")/organizations
 
 # function test_crypt_key() {
 #     # PEER or ORDERER
