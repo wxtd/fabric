@@ -1,1 +1,1 @@
-{"AppraisedValue":800,"Color":"white","ID":"asset6","Owner":"Michel","Size":15}
+{"AppraisedValue":800,"Color":"white","ID":"asset6","Owner":"AAA","Size":15}

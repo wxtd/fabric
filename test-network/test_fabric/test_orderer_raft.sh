@@ -22,7 +22,7 @@ function test_raft() {
 
     start_docker orderer2.example.com
 
-    println "sleep 10"
+    println "sleep 10~"
     sleep 10
     $test_orderer_data_consistency_cmd
 }

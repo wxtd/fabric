@@ -1,0 +1,158 @@
+[0;34m2023-06-10 14:05:15[0m
+-------------------------------------------------
+[0;34m./test_docker_architecture.sh # Testing if using docker architecture[0m
+hyperledger/fabric-peer:latest hyperledger/fabric-tools:latest hyperledger/fabric-peer:latest hyperledger/fabric-peer:latest hyperledger/fabric-orderer:latest hyperledger/fabric-orderer:latest hyperledger/fabric-orderer:latest
+[0;32mUsing Docker Architecture![0m
+[0;34m./test_query_or_invoke.sh query 1 1 mychannel basic ReadAsset asset6[0m
+[0;34mUsing organization 1[0m
+Querying~
+[0;34m./test_query_or_invoke.sh query 2 1 mychannel basic ReadAsset asset6 # Testing query command[0m
+[0;34mUsing organization 1[0m
+Querying~
+[0;32mQuery result is the same![0m
+[0;34m./test_query_or_invoke.sh invoke 1 mychannel basic TransferAsset asset6 Amy # Testing invoke command[0m
+[0;34mUsing organization 1[0m
+Invoking~
+[0;32mInvoke Success![0m
+[0;34m./detect_encryption_method.sh # Testing all encryption algorithms[0m
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+ecdsa-with-SHA256
+[0;34m./test_blade.sh # Testing maintainability Creating faults with chaosblade, a chaos engineering tool[0m
+[0;34mUsing organization 1[0m
+Querying~
+Creating cpu blade~
+[0;34mUsing organization 1[0m
+Querying~
+[0;32mQuery result is the same![0m
+Creating disk blade~
+[0;34mUsing organization 1[0m
+Querying~
+[0;32mQuery result is the same![0m
+Creating mem blade~
+[0;34mUsing organization 1[0m
+Querying~
+[0;32mQuery result is the same![0m
+[0;34m./test_data_crypt.sh # Detecting whether the block data content is desensitized and encrypted[0m
+"value": "eyJBcHByYWlzZWRWYWx1ZSI6ODAwLCJDb2xvciI6IndoaXRlIiwiSUQiOiJhc3NldDYiLCJPd25lciI6IkFteSIsIlNpemUiOjE1fQ=="
+[0;34m./test_data_duration.sh # Testing transaction idempotency, persistence[0m
+[0;34mUsing organization 1[0m
+Querying~
+[0;34mUsing organization 1[0m
+Querying~
+[0;32mQuery result is the same![0m
+[0;34m./test_peer_high_available.sh invoke 1 mychannel basic TransferAsset asset6 Amy # Testing node high availability[0m
+Stopping peer0.org1.example.com
+Stop Success
+[0;34mUsing organization 2[0m
+Invoking~
+[0;32mInvoke Success![0m
+Starting peer0.org1.example.com
+Start Success
+[0;34m./test_peer_high_available.sh orderer2.example.com query mychannel basic ReadAsset asset6 # Testing node high availability[0m
+[0;34mUsing organization 1[0m
+Querying~
+Stopping orderer2.example.com
+Stop Success
+[0;34mUsing organization 2[0m
+Querying~
+[0;32mQuery result is the same![0m
+Starting orderer2.example.com
+Start Success
+[0;34m./test_orderer_raft.sh # Validating Consensus Algorithms[0m
+[0;34mUsing organization 1[0m
+Querying~
+Stopping orderer2.example.com
+Stop Success
+[0;34mUsing organization 1[0m
+Querying~
+[0;32mQuery result is the same![0m
+[0;34mUsing organization 1[0m
+Invoking~
+[0;32mInvoke Success![0m
+Starting orderer2.example.com
+Start Success
+sleep 10~
+[0;32mCommon part:[0m
+Writing block [24] (Raft index: 28)
+-------------------------------------------------

@@ -1,17 +1,100 @@
-[33m2023-05-07 08:21:10.163 UTC [orderer.common.cluster.step] sendMessage -> WARN 064[0m Send of ConsensusRequest for channel mychannel with payload of size 28 to orderer2.example.com(orderer2.example.com:9050) took 76.654µs but failed due to EOF
-[31m2023-05-07 08:21:10.665 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 065[0m Failed to send StepRequest to 3, because: EOF channel=mychannel node=2
-[34m2023-05-07 08:21:12.163 UTC [orderer.consensus.etcdraft] send -> INFO 066[0m Successfully sent StepRequest to 3 after failed attempt(s) channel=mychannel node=2
-[33m2023-05-07 08:22:48.831 UTC [orderer.common.cluster] handleMessage -> WARN 067[0m Stream read from 192.168.80.4:45272 failed: rpc error: code = Canceled desc = context canceled
-[34m2023-05-07 08:22:48.831 UTC [comm.grpc.server] 1 -> INFO 068[0m streaming call completed grpc.service=orderer.Cluster grpc.method=Step grpc.peer_address=192.168.80.4:45272 grpc.peer_subject="CN=orderer2.example.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=1m36.665025563s
-[33m2023-05-07 08:22:49.163 UTC [orderer.common.cluster.step] sendMessage -> WARN 069[0m Send of ConsensusRequest for channel mychannel with payload of size 28 to orderer2.example.com(orderer2.example.com:9050) took 180.536µs but failed due to EOF
-[31m2023-05-07 08:22:49.663 UTC [orderer.consensus.etcdraft] logSendFailure -> ERRO 06a[0m Failed to send StepRequest to 3, because: EOF channel=mychannel node=2
-[34m2023-05-07 08:22:53.032 UTC [orderer.consensus.etcdraft] propose -> INFO 06b[0m Created block [8], there are 0 blocks in flight channel=mychannel node=2
-[34m2023-05-07 08:22:53.765 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 06c[0m Writing block [8] (Raft index: 12) to ledger channel=mychannel node=2
-[34m2023-05-07 08:22:55.163 UTC [orderer.consensus.etcdraft] send -> INFO 06d[0m Successfully sent StepRequest to 3 after failed attempt(s) channel=mychannel node=2
-[34m2023-05-07 09:32:16.655 UTC [orderer.common.server] func1 -> INFO 06e[0m Received signal: 15 (terminated)
-[33m2023-05-07 09:32:16.656 UTC [orderer.common.cluster] handleMessage -> WARN 06f[0m Stream read from 192.168.80.6:60762 failed: rpc error: code = Canceled desc = context canceled
-[34m2023-05-07 09:32:16.656 UTC [comm.grpc.server] 1 -> INFO 070[0m streaming call completed grpc.service=orderer.Cluster grpc.method=Step grpc.peer_address=192.168.80.6:60762 grpc.peer_subject="CN=orderer0.example.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=6h21m51.489305325s
-[33m2023-05-07 09:32:16.656 UTC [orderer.common.cluster] handleMessage -> WARN 071[0m Stream read from 192.168.80.6:60762 failed: rpc error: code = Canceled desc = context canceled
-[34m2023-05-07 09:32:16.656 UTC [comm.grpc.server] 1 -> INFO 072[0m streaming call completed grpc.service=orderer.Cluster grpc.method=Step grpc.peer_address=192.168.80.6:60762 grpc.peer_subject="CN=orderer0.example.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=6h20m46.72281335s
-[33m2023-05-07 09:32:16.656 UTC [orderer.common.cluster] handleMessage -> WARN 073[0m Stream read from 192.168.80.4:45330 failed: rpc error: code = Canceled desc = context canceled
-[34m2023-05-07 09:32:16.656 UTC [comm.grpc.server] 1 -> INFO 074[0m streaming call completed grpc.service=orderer.Cluster grpc.method=Step grpc.peer_address=192.168.80.4:45330 grpc.peer_subject="CN=orderer2.example.com,L=San Francisco,ST=California,C=US" error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=1h9m21.486704205s
+QJIiZQ==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICcDCCAhagAwIBAgIQdHUgbAHGEeBp3nEWp1+hNTAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTIzMDYxMDA0MzQwMFoXDTMzMDYwNzA0MzQwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIyLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEP3T6TuiCZlxr3jK00M7y8R7NP0eDGToY7r9spcWgcWm+
+YtVU4+ULHsJPS6mJAfA4eFtpWZogtOAXbVuN29/EWaOBrDCBqTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgNk+brEJ0/N7xN80aWkJM+TL92nORCh5VaschYkGQ0XMw
+PQYDVR0RBDYwNIIUb3JkZXJlcjIuZXhhbXBsZS5jb22CCG9yZGVyZXIyggEqggls
+b2NhbGhvc3SHBAqwDkcwCgYIKoZIzj0EAwIDSAAwRQIhAKDKqvZ/C3xlFXDzIIg3
+iaZaBtAuvMit8bdgXn+1nbLhAiBhJfIYxa5rBdI6PI+L+g9Z3Ky/TjxxQuUNYJzD
+QJIiZQ==
+-----END CERTIFICATE-----
+ ID: 1,
+Endpoint: orderer0.example.com:7050,
+ServerTLSCert:-----BEGIN CERTIFICATE-----
+MIICWzCCAgKgAwIBAgIQLfh4RkXz/MzhP9C4vCIM+TAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTIzMDYxMDA0MzQwMFoXDTMzMDYwNzA0MzQwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIwLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEnP+EuNOerZt3cHt53eQqPkbDINs/9iI+yIIASbcT6xrc
+Q8QqAzbFlx5/biiKTW+IVmC49Gj+0kvjWkFsnHAHa6OBmDCBlTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgNk+brEJ0/N7xN80aWkJM+TL92nORCh5VaschYkGQ0XMw
+KQYDVR0RBCIwIIIUb3JkZXJlcjAuZXhhbXBsZS5jb22CCG9yZGVyZXIwMAoGCCqG
+SM49BAMCA0cAMEQCIGJc4iC2OAFOoyHDEJpbcPax6nqsZZlJ4gM3JaYyeE10AiAb
+wdA2WErzReMcmE8cfDW2klHQqM9zlaw5Nn2DE1Ydag==
+-----END CERTIFICATE-----
+, ClientTLSCert:-----BEGIN CERTIFICATE-----
+MIICWzCCAgKgAwIBAgIQLfh4RkXz/MzhP9C4vCIM+TAKBggqhkjOPQQDAjBsMQsw
+CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+YW5jaXNjbzEUMBIGA1UEChMLZXhhbXBsZS5jb20xGjAYBgNVBAMTEXRsc2NhLmV4
+YW1wbGUuY29tMB4XDTIzMDYxMDA0MzQwMFoXDTMzMDYwNzA0MzQwMFowWTELMAkG
+A1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFu
+Y2lzY28xHTAbBgNVBAMTFG9yZGVyZXIwLmV4YW1wbGUuY29tMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEnP+EuNOerZt3cHt53eQqPkbDINs/9iI+yIIASbcT6xrc
+Q8QqAzbFlx5/biiKTW+IVmC49Gj+0kvjWkFsnHAHa6OBmDCBlTAOBgNVHQ8BAf8E
+BAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQC
+MAAwKwYDVR0jBCQwIoAgNk+brEJ0/N7xN80aWkJM+TL92nORCh5VaschYkGQ0XMw
+KQYDVR0RBCIwIIIUb3JkZXJlcjAuZXhhbXBsZS5jb22CCG9yZGVyZXIwMAoGCCqG
+SM49BAMCA0cAMEQCIGJc4iC2OAFOoyHDEJpbcPax6nqsZZlJ4gM3JaYyeE10AiAb
+wdA2WErzReMcmE8cfDW2klHQqM9zlaw5Nn2DE1Ydag==
+-----END CERTIFICATE-----
+]
+[34m2023-06-10 04:39:52.425 UTC [orderer.common.cluster] updateStubInMapping -> INFO 018[0m Allocating a new stub for node 3 with endpoint of orderer2.example.com:9050 for channel mychannel
+[34m2023-06-10 04:39:52.425 UTC [orderer.common.cluster] updateStubInMapping -> INFO 019[0m Deactivating node 3 in channel mychannel with endpoint of orderer2.example.com:9050 due to TLS certificate change
+[34m2023-06-10 04:39:52.427 UTC [orderer.common.cluster] updateStubInMapping -> INFO 01a[0m Allocating a new stub for node 1 with endpoint of orderer0.example.com:7050 for channel mychannel
+[34m2023-06-10 04:39:52.427 UTC [orderer.common.cluster] updateStubInMapping -> INFO 01b[0m Deactivating node 1 in channel mychannel with endpoint of orderer0.example.com:7050 due to TLS certificate change
+[34m2023-06-10 04:39:52.431 UTC [orderer.common.cluster] func1 -> INFO 01c[0m 3 exists in both old and new membership for channel mychannel , skipping its deactivation
+[34m2023-06-10 04:39:52.431 UTC [orderer.common.cluster] func1 -> INFO 01d[0m 1 exists in both old and new membership for channel mychannel , skipping its deactivation
+[34m2023-06-10 04:39:52.431 UTC [orderer.common.cluster] Configure -> INFO 01e[0m Exiting
+[34m2023-06-10 04:39:52.431 UTC [orderer.consensus.etcdraft] start -> INFO 01f[0m Starting raft node as part of a new channel channel=mychannel node=2
+[34m2023-06-10 04:39:52.431 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 020[0m 2 became follower at term 0 channel=mychannel node=2
+[34m2023-06-10 04:39:52.431 UTC [orderer.consensus.etcdraft] newRaft -> INFO 021[0m newRaft 2 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0] channel=mychannel node=2
+[34m2023-06-10 04:39:52.431 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 022[0m 2 became follower at term 1 channel=mychannel node=2
+[34m2023-06-10 04:39:52.432 UTC [orderer.consensus.etcdraft] run -> INFO 023[0m This node is picked to start campaign channel=mychannel node=2
+[34m2023-06-10 04:39:52.435 UTC [orderer.consensus.etcdraft] apply -> INFO 024[0m Applied config change to add node 1, current nodes in channel: [1 2 3] channel=mychannel node=2
+[34m2023-06-10 04:39:52.435 UTC [orderer.consensus.etcdraft] apply -> INFO 025[0m Applied config change to add node 2, current nodes in channel: [1 2 3] channel=mychannel node=2
+[34m2023-06-10 04:39:52.435 UTC [orderer.consensus.etcdraft] apply -> INFO 026[0m Applied config change to add node 3, current nodes in channel: [1 2 3] channel=mychannel node=2
+[34m2023-06-10 04:39:52.490 UTC [orderer.consensus.etcdraft] Step -> INFO 027[0m 2 [logterm: 1, index: 3, vote: 0] cast MsgPreVote for 1 [logterm: 1, index: 3] at term 1 channel=mychannel node=2
+[34m2023-06-10 04:39:52.495 UTC [orderer.consensus.etcdraft] Step -> INFO 028[0m 2 [term: 1] received a MsgVote message with higher term from 1 [term: 2] channel=mychannel node=2
+[34m2023-06-10 04:39:52.495 UTC [orderer.consensus.etcdraft] becomeFollower -> INFO 029[0m 2 became follower at term 2 channel=mychannel node=2
+[34m2023-06-10 04:39:52.495 UTC [orderer.consensus.etcdraft] Step -> INFO 02a[0m 2 [logterm: 1, index: 3, vote: 0] cast MsgVote for 1 [logterm: 1, index: 3] at term 2 channel=mychannel node=2
+[34m2023-06-10 04:39:52.503 UTC [orderer.consensus.etcdraft] run -> INFO 02b[0m raft.node: 2 elected leader 1 at term 2 channel=mychannel node=2
+[34m2023-06-10 04:39:52.506 UTC [orderer.consensus.etcdraft] run -> INFO 02c[0m Leader 1 is present, quit campaign channel=mychannel node=2
+[34m2023-06-10 04:39:52.506 UTC [orderer.consensus.etcdraft] run -> INFO 02d[0m Raft leader changed: 0 -> 1 channel=mychannel node=2
+[34m2023-06-10 04:40:05.179 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 02e[0m Writing block [1] (Raft index: 5) to ledger channel=mychannel node=2
+[34m2023-06-10 04:40:05.862 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 02f[0m Writing block [2] (Raft index: 6) to ledger channel=mychannel node=2
+[34m2023-06-10 04:40:44.869 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 030[0m Writing block [3] (Raft index: 7) to ledger channel=mychannel node=2
+[34m2023-06-10 04:40:54.843 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 031[0m Writing block [4] (Raft index: 8) to ledger channel=mychannel node=2
+[34m2023-06-10 04:41:04.008 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 032[0m Writing block [5] (Raft index: 9) to ledger channel=mychannel node=2
+[34m2023-06-10 04:41:16.709 UTC [orderer.consensus.etcdraft] forwardToLeader -> INFO 033[0m Forwarding transaction to the leader 1 channel=mychannel node=2
+[34m2023-06-10 04:41:16.715 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 034[0m Writing block [6] (Raft index: 10) to ledger channel=mychannel node=2
+[33m2023-06-10 04:41:16.722 UTC [orderer.common.broadcast] Handle -> WARN 035[0m Error reading from 192.168.128.7:51018: rpc error: code = Canceled desc = context canceled
+[34m2023-06-10 04:41:16.722 UTC [comm.grpc.server] 1 -> INFO 036[0m streaming call completed grpc.service=orderer.AtomicBroadcast grpc.method=Broadcast grpc.peer_address=192.168.128.7:51018 error="rpc error: code = Canceled desc = context canceled" grpc.code=Canceled grpc.call_duration=36.629559ms
+[34m2023-06-10 04:41:21.271 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 037[0m Writing block [7] (Raft index: 11) to ledger channel=mychannel node=2
+[34m2023-06-10 04:43:14.510 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 038[0m Writing block [8] (Raft index: 12) to ledger channel=mychannel node=2
+[34m2023-06-10 04:44:35.664 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 039[0m Writing block [9] (Raft index: 13) to ledger channel=mychannel node=2
+[34m2023-06-10 04:44:47.197 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03a[0m Writing block [10] (Raft index: 14) to ledger channel=mychannel node=2
+[34m2023-06-10 04:54:21.047 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03b[0m Writing block [11] (Raft index: 15) to ledger channel=mychannel node=2
+[34m2023-06-10 04:55:46.239 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03c[0m Writing block [12] (Raft index: 16) to ledger channel=mychannel node=2
+[34m2023-06-10 04:56:50.873 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03d[0m Writing block [13] (Raft index: 17) to ledger channel=mychannel node=2
+[34m2023-06-10 05:12:34.875 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03e[0m Writing block [14] (Raft index: 18) to ledger channel=mychannel node=2
+[34m2023-06-10 05:16:58.733 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 03f[0m Writing block [15] (Raft index: 19) to ledger channel=mychannel node=2
+[34m2023-06-10 05:27:02.627 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 040[0m Writing block [16] (Raft index: 20) to ledger channel=mychannel node=2
+[34m2023-06-10 05:29:12.049 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 041[0m Writing block [17] (Raft index: 21) to ledger channel=mychannel node=2
+[34m2023-06-10 05:31:16.716 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 042[0m Writing block [18] (Raft index: 22) to ledger channel=mychannel node=2
+[34m2023-06-10 05:53:49.727 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 043[0m Writing block [19] (Raft index: 23) to ledger channel=mychannel node=2
+[34m2023-06-10 05:55:56.155 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 044[0m Writing block [20] (Raft index: 24) to ledger channel=mychannel node=2
+[34m2023-06-10 05:58:20.687 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 045[0m Writing block [21] (Raft index: 25) to ledger channel=mychannel node=2
+[34m2023-06-10 06:05:17.838 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 046[0m Writing block [22] (Raft index: 26) to ledger channel=mychannel node=2
+[34m2023-06-10 06:07:26.236 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 047[0m Writing block [23] (Raft index: 27) to ledger channel=mychannel node=2
+[34m2023-06-10 06:09:32.301 UTC [orderer.consensus.etcdraft] writeBlock -> INFO 048[0m Writing block [24] (Raft index: 28) to ledger channel=mychannel node=2

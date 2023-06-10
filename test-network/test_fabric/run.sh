@@ -2,8 +2,8 @@
 
 . utils.sh
 
-query_data="1 chain_002 find_by_file_hash file_hash ab3456df5799b87c77e7f88"
-invoke_data="1 chain_002 save file_name name008 file_hash bb3456df5799b87c77e7f88 time 6543234"
+query_data="1 mychannel basic ReadAsset asset6"
+invoke_data="1 mychannel basic TransferAsset asset6 Amy"
 
 function test() {
     local result=$RESULT_ADDRESS/result.txt
@@ -55,19 +55,19 @@ function test() {
     record_result "./test_data_duration.sh # Testing transaction idempotency, persistence"
     ./test_data_duration.sh >>$result 2>>$LOG
 
-    # 测试node高可用性
-    record_result "./test_node_high_available.sh invoke 0 $invoke_data # Testing node high availability"
-    ./test_node_high_available.sh invoke $invoke_data >>$result 2>>$LOG
+    # 测试peer高可用性
+    record_result "./test_peer_high_available.sh invoke $invoke_data # Testing node high availability"
+    ./test_peer_high_available.sh invoke $invoke_data >>$result 2>>$LOG
     # or in query mod
-    # ./test_node_high_available.sh query $query_data >>$result 2>>$LOG
+    # ./test_peer_high_available.sh query $query_data >>$result 2>>$LOG
 
-    # 测试node数据一致性
-    record_result "./test_node_data_consistency.sh # Detecting node data consistency, support failover or not"
-    ./test_node_data_consistency.sh >>$result 2>>$LOG
+    # 测试orderer高可用性
+    record_result "./test_peer_high_available.sh orderer2.example.com query mychannel basic ReadAsset asset6 # Testing node high availability"
+    ./test_orderer_high_available.sh orderer2.example.com query mychannel basic ReadAsset asset6 >>$result 2>>$LOG
 
     # 验证共识节点(Raft)
-    record_result "./test_node_raft.sh # Validating Consensus Algorithms"
-    ./test_node_raft.sh >>$result 2>>$LOG
+    record_result "./test_orderer_raft.sh # Validating Consensus Algorithms"
+    ./test_orderer_raft.sh >>$result 2>>$LOG
 
     # set +x
 

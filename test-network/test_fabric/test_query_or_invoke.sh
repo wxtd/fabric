@@ -7,7 +7,7 @@
 
 # Firstly query and then save this result as log1.txt
 saveQueryResult() {
-    infoln "Querying~"
+    println "Querying~"
     # println $#
     
     processParam $@
@@ -66,8 +66,8 @@ ivokeChaincode() {
         port2=9051
     fi
 
-    # $peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls \
-    # --cafile "${ADDRESS}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" \
+    # $peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer0.example.com --tls \
+    # --cafile "${ADDRESS}/organizations/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" \
     # -C ${CHANNEL_NAME} -n ${CHAINCODE_NAME} \
     # --peerAddresses localhost:${port1} --tlsRootCertFiles "${ADDRESS}/organizations/peerOrganizations/org${org1}.example.com/peers/peer0.org${org1}.example.com/tls/ca.crt" \
     # --peerAddresses localhost:${port2} --tlsRootCertFiles "${ADDRESS}/organizations/peerOrganizations/org${org2}.example.com/peers/peer0.org${org2}.example.com/tls/ca.crt" \
@@ -76,11 +76,11 @@ ivokeChaincode() {
     $peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer0.example.com --tls \
     --cafile "${ADDRESS}/organizations/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" \
     -C ${CHANNEL_NAME} -n ${CHAINCODE_NAME} \
-    --peerAddresses localhost:${port1} --tlsRootCertFiles "${ADDRESS}/organizations/peerOrganizations/org${org1}.example.com/peers/peer0.org${org1}.example.com/tls/ca.crt" \
+    --peerAddresses localhost:${port2} --tlsRootCertFiles "${ADDRESS}/organizations/peerOrganizations/org${org2}.example.com/peers/peer0.org${org2}.example.com/tls/ca.crt" \
     -c '{"function":"'${FUNCTION_NAME}'","Args":['$ARGS']}' > $QUERY_OR_INVOKE_RESULT_ADDRESS/invoke_result.txt 2>&1
 
-    # $peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls \
-    # --cafile "${ADDRESS}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" \
+    # $peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer0.example.com --tls \
+    # --cafile "${ADDRESS}/organizations/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" \
     # -C ${CHANNEL_NAME} -n ${CHAINCODE_NAME} \
     # -c '{"function":"'${FUNCTION_NAME}'","Args":['$ARGS']}' > $QUERY_OR_INVOKE_RESULT_ADDRESS/invoke_result.txt 2>&1
 
@@ -120,8 +120,6 @@ printHelp() {
     println "       ./test_query_or_invoke.sh query 1 1 mychannel basic ReadAsset asset6"
     println "    or ./test_query_or_invoke.sh invoke 1 mychannel basic TransferAsset asset6 Amy"
 }
-
-
 
 if [ ! -d "$QUERY_OR_INVOKE_RESULT_ADDRESS" ]; then
     mkdir -p $QUERY_OR_INVOKE_RESULT_ADDRESS

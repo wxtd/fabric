@@ -17,7 +17,10 @@ function test_orderer_data_consistency() {
     do 
         cat $ORDERER_RESULT_ADDRESS/orderer_test_$i.txt | grep block \
             | sed -n '/Writing\sblock\s\[[0-9]\+\]\s(Raft\sindex:\s[0-9]\+)/ p' \
-            | awk '{print $9,$10,$11,$12,$13,$14}' ORS="\n" > $ORDERER_RESULT_ADDRESS/temp${j}.txt
+            | awk '{print $9,$10,$11,$12,$13,$14}' ORS="\n" > $ORDERER_RESULT_ADDRESS/valid_log${j}.txt
+        
+        sort -u $ORDERER_RESULT_ADDRESS/valid_log${j}.txt > $ORDERER_RESULT_ADDRESS/temp${j}.txt
+
             # | awk '{for(i=9; i<=14; i++) {print $i}}' ORS="\n"
         let j++
     done
@@ -44,12 +47,14 @@ function test_orderer_data_consistency() {
     done
     # cat $ORDERER_RESULT_ADDRESS/temp.txt
     if [[ -s $ORDERER_RESULT_ADDRESS/common.txt ]]; then
+        successln "Common part:"
         cat $ORDERER_RESULT_ADDRESS/common.txt
     else 
-        println "No!"
+        errorln "No common parts!"
     fi
     rm $ORDERER_RESULT_ADDRESS/common.txt
     rm $ORDERER_RESULT_ADDRESS/temp*.txt
+    rm $ORDERER_RESULT_ADDRESS/valid_log*.txt
 }
 
 function get_log() {
@@ -61,13 +66,13 @@ function get_log() {
     done
     # kill processes about docker logs
     # echo ${#orderer_list[@]}
-    sleep 3 && kill -9 `ps -ef | grep docker\ logs | awk '{print $2}' | head -${#orderer_list[@]}`
+    sleep 3 && kill -9 `ps -ef | grep docker\ logs | awk '{print $2}' | head -${#orderer_list[@]}` > /dev/null
 }
 
 function get_last_log_from_orderer() {
     local orderer_name=$1
 
-    docker logs -f $orderer_name --tail 10 > $ORDERER_RESULT_ADDRESS/orderer_test_$orderer_name.txt 2>&1 &
+    docker logs -f $orderer_name --tail 100 > $ORDERER_RESULT_ADDRESS/orderer_test_$orderer_name.txt 2>&1 &
 }
 
 if [ ! -d "$ORDERER_RESULT_ADDRESS" ]; then

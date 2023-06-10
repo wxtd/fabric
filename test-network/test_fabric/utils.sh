@@ -8,6 +8,7 @@ CHAINCODE_RESULT_ADDRESS=$RESULT_ADDRESS/chaincode
 QUERY_OR_INVOKE_RESULT_ADDRESS=$RESULT_ADDRESS/peer
 BIN_ADDRESS=/home/ubuntu/ms/fabric-samples/bin
 peer=$BIN_ADDRESS/peer
+LOG=$RESULT_ADDRESS/test.log
 
 setGlobals() {
     local ORG_NUM=$1
@@ -104,5 +105,9 @@ start_docker() {
 
 function get_block() {
   setGlobals 1
-  peer channel fetch $1 -c mychannel --orderer orderer0.example.com:7050 --tls --cafile /home/ubuntu/ms/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+  $peer channel fetch $1 -c mychannel --orderer orderer0.example.com:7050 --tls --cafile /home/ubuntu/ms/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer0.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 }
+
+if [[ ! -f $RESULT_ADDRESS/test.log ]]; then
+  touch $RESULT_ADDRESS/test.log
+fi
