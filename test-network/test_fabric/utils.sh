@@ -6,6 +6,8 @@ RESULT_ADDRESS=result
 ORDERER_RESULT_ADDRESS=$RESULT_ADDRESS/orderer
 CHAINCODE_RESULT_ADDRESS=$RESULT_ADDRESS/chaincode
 QUERY_OR_INVOKE_RESULT_ADDRESS=$RESULT_ADDRESS/peer
+BIN_ADDRESS=/home/ubuntu/ms/fabric-samples/bin
+peer=$BIN_ADDRESS/peer
 
 setGlobals() {
     local ORG_NUM=$1
@@ -47,32 +49,33 @@ C_YELLOW='\033[1;33m'
 
 # println echos string
 function println() {
-  echo -e "$1"
+  # echo -e "$1"
+  echo -e $@
 }
 
 # errorln echos i red color
 function errorln() {
-  println "${C_RED}${1}${C_RESET}"
+  println "${C_RED}$@${C_RESET}"
 }
 
 # successln echos in green color
 function successln() {
-  println "${C_GREEN}${1}${C_RESET}"
+  println "${C_GREEN}$@${C_RESET}"
 }
 
 # infoln echos in blue color
 function infoln() {
-  println "${C_BLUE}${1}${C_RESET}"
+  println "${C_BLUE}$@${C_RESET}"
 }
 
 # warnln echos in yellow color
 function warnln() {
-  println "${C_YELLOW}${1}${C_RESET}"
+  println "${C_YELLOW}$@${C_RESET}"
 }
 
 # fatalln echos in red color and exits with fail status
 function fatalln() {
-  errorln "$1"
+  errorln $@
   exit 1
 }
 
